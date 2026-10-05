@@ -88,6 +88,33 @@
             animation: fadeIn 1s ease-out 1s forwards;
             opacity: 0;
         }
+
+        .music-toggle {
+            position: fixed;
+            bottom-6 right-6;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fb7185 to #ec4899);
+            border: 2px solid white;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            z-index: 50;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .music-toggle.playing {
+            animation: pulse 1.5s infinite;
+        }
     </style>
 </head>
 <body class="m-0 p-0 overflow-x-hidden">
@@ -102,10 +129,70 @@
 
         <!-- Main Content -->
         <div id="content"></div>
+
+        <!-- Music Toggle Button -->
+        <button id="musicToggle" class="music-toggle playing" onclick="toggleMusic()" title="Toggle Music">
+            <span id="musicIcon">🎵</span>
+        </button>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="birthdayAudio" loop>
+        <source src="./birthday-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         let opened = false;
+        let isPlaying = true;
+        const audio = document.getElementById('birthdayAudio');
+        const musicToggle = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+
+        // Auto-play audio on page load
+        window.addEventListener('load', function() {
+            audio.volume = 0.5;
+            // Coba autoplay
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    // Autoplay tertahan, tunggu user interaction
+                    console.log("Autoplay tertahan, tunggu interaksi user");
+                    isPlaying = false;
+                    updateMusicIcon();
+                });
+            }
+        });
+
+        // Enable audio on first user interaction
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                audio.play();
+                isPlaying = true;
+                updateMusicIcon();
+            }
+        }, { once: true });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+            } else {
+                audio.play();
+                isPlaying = true;
+            }
+            updateMusicIcon();
+        }
+
+        function updateMusicIcon() {
+            if (isPlaying) {
+                musicToggle.classList.add('playing');
+                musicIcon.textContent = '🎵';
+            } else {
+                musicToggle.classList.remove('playing');
+                musicIcon.textContent = '🔇';
+            }
+        }
 
         function render() {
             const content = document.getElementById('content');
