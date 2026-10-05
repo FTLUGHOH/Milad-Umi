@@ -91,13 +91,13 @@
     </style>
 </head>
 <body class="m-0 p-0 overflow-x-hidden">
-    <div id="app" class="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-zinc-800 flex items-center justify-center p-6 overflow-hidden text-white relative">
+    <div id="app" class="min-h-screen bg-gradient-to-br from-rose-100 via-pink-100 to-purple-100 flex items-center justify-center p-6 overflow-hidden text-gray-800 relative">
         <!-- Background Emojis -->
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div class="absolute inset-0 opacity-30 pointer-events-none">
             <div class="absolute top-10 left-10 text-4xl animate-bounce">✨</div>
             <div class="absolute top-24 right-16 text-3xl animate-pulse">🎈</div>
             <div class="absolute bottom-16 left-20 text-4xl animate-pulse">🎂</div>
-            <div class="absolute bottom-20 right-10 text-3xl animate-bounce">🤍</div>
+            <div class="absolute bottom-20 right-10 text-3xl animate-bounce">💕</div>
         </div>
 
         <!-- Main Content -->
@@ -112,16 +112,16 @@
             
             if (!opened) {
                 content.innerHTML = `
-                    <div class="max-w-md w-full bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl text-center animate-scale-in">
-                        <h1 class="text-4xl font-bold mb-6 leading-tight">
+                    <div class="max-w-md w-full bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl p-10 shadow-2xl text-center animate-scale-in">
+                        <h1 class="text-4xl font-bold mb-6 leading-tight text-rose-700">
                             Umi Kami Tercinta 🎁
                         </h1>
-                        <p class="text-zinc-300 leading-8 mb-8">
+                        <p class="text-rose-600 leading-8 mb-8 text-lg">
                             Ada sesuatu buat Umi ✨
                         </p>
                         <button
                             onclick="handleOpen()"
-                            class="px-8 py-4 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition-all duration-300 cursor-pointer"
+                            class="px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-400 to-pink-400 text-white font-semibold hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
                         >
                             Open Message 🤍
                         </button>
@@ -129,23 +129,23 @@
                 `;
             } else {
                 content.innerHTML = `
-                    <div class="max-w-xl w-full bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl text-center animate-slide-up">
-                        <p class="text-zinc-300 text-sm tracking-[0.3em] mb-4">
+                    <div class="max-w-xl w-full bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl p-10 shadow-2xl text-center animate-slide-up">
+                        <p class="text-rose-600 text-sm tracking-[0.3em] mb-4 font-semibold">
                             HAPPY 48TH BIRTHDAY
                         </p>
 
-                        <h1 class="text-4xl md:text-5xl font-bold mb-8 leading-tight animate-scale-in">
-                            Umi Kami Tercinta 🎉🤍
+                        <h1 class="text-4xl md:text-5xl font-bold mb-8 leading-tight animate-scale-in text-rose-700">
+                            Umi Kami Tercinta 🎉💕
                         </h1>
 
-                        <div class="space-y-4 text-lg leading-9 text-zinc-100">
+                        <div class="space-y-4 text-lg leading-9 text-gray-700">
                             <p class="text-fade-in">بارك الله في عمرك،</p>
                             <p class="text-fade-in">وأسعد الله قلبك،</p>
                             <p class="text-fade-in">وحقّق الله أحلامك،</p>
                             <p class="text-fade-in">وجعل أيّامك كلّها فرحًا وراحةً.</p>
                         </div>
 
-                        <div class="mt-10 text-zinc-300 leading-8 text-base animate-fade-in" style="animation-delay: 1s; opacity: 0;">
+                        <div class="mt-10 text-rose-600 leading-8 text-base animate-fade-in" style="animation-delay: 1s; opacity: 0;">
                             <p>Semoga selalu dikelilingi hal-hal baik,</p>
                             <p>dan semoga semua yang disemogakan</p>
                             <p>pelan-pelan jadi kenyataan ✨</p>
@@ -154,7 +154,7 @@
                         <div class="mt-10 flex items-center justify-center gap-3 text-3xl animate-pulse emoji-container">
                             <span>🎂</span>
                             <span>✨</span>
-                            <span>🤍</span>
+                            <span>💕</span>
                             <span>🎉</span>
                         </div>
                     </div>
